@@ -14,8 +14,8 @@ function giantCovidCurl() {
 noAppointmentsAvailableXpath='/html/body/table/tbody/tr[2]/td/table/tbody/tr/td/div/div/h2/span/span/text()';
 inLineXpath='//*[@id="lbHeaderP"]/text()'
 function giantCovidExtractMsg() {
-  responseMsg="`xmllint --html --xpath ${noAppointmentsAvailableXpath} ${outFile}`";
-  inLineResponseMsg="`xmllint --html --xpath ${inLineXpath} ${outFile}`";
+  responseMsg="`xmllint --html --xpath ${noAppointmentsAvailableXpath} ${outFile} 2> /dev/null`";
+  inLineResponseMsg="`xmllint --html --xpath ${inLineXpath} ${outFile} 2> /dev/null`";
   echo ${responseMsg};
   echo ${inLineResponseMsg};
 }
