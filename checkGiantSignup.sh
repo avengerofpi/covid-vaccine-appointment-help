@@ -12,9 +12,12 @@ function giantCovidCurl() {
 # Process output HTML (XHTML?) file to try to extract the relevant msg field(s).
 # Right now I only know what the (current) "no appointments available" msg looks like.
 noAppointmentsAvailableXpath='/html/body/table/tbody/tr[2]/td/table/tbody/tr/td/div/div/h2/span/span/text()';
+inLineXpath='//*[@id="lbHeaderP"]/text()'
 function giantCovidExtractMsg() {
   responseMsg="`xmllint --html --xpath ${noAppointmentsAvailableXpath} ${outFile}`";
+  inLineResponseMsg="`xmllint --html --xpath ${inLineXpath} ${outFile}`";
   echo ${responseMsg};
+  echo ${inLineResponseMsg};
 }
 
 # Print date, with color!
@@ -35,6 +38,7 @@ Check out link: ${url}
 
 Exerpt from from last call attempt:
   "${responseMsg}"
+  "${inLineResponseMsg}"
 EOF
 }
 
