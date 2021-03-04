@@ -3,6 +3,7 @@
 outFile=output.html;
 emailFile=email-msg.txt;
 distroFile=distro.config;
+responseSamplesDir=response-samples;
 
 # Call Giant website link to check for open slots. Follow redirects (--location),
 # Silent output except for errors (-sS), and write to specified file (--output).
@@ -39,6 +40,14 @@ function giantCovidExtractMsg() {
   echo "'${inLineResponseMsg}'";
   echo "'${waitTimeMsg}'";
   echo "'${downMsg}'";
+
+  # Save copy of response file if all extracts are blank
+  concatExtracts="${responseMsg}${inLineResponseMsg}${waitTimeMsg}${downMsg}";
+  if [ -z "${concatExtracts}" ]; then
+    backupOutFile="`date +%F--%Hh%Mm%Ss`-${outFile}";
+    backupOutPath="${responseSamplesDir}/${backupOutFile}";
+    cp "${outFile}" "${backupOutPath}";
+  fi;
 }
 
 # Print date, with color!
