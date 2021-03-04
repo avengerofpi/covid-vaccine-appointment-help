@@ -2,6 +2,7 @@
 
 outFile=output.html;
 emailFile=email-msg.txt;
+distroFile=distro.config;
 
 # Call Giant website link to check for open slots. Follow redirects (--location),
 # Silent output except for errors (-sS), and write to specified file (--output).
@@ -47,9 +48,15 @@ failureResponseMsg="There are currently no COVID-19 vaccine appointments availab
 function sendEmailOnNonFailure() {
   if [ "${responseMsg}" != "${failureResponseMsg}" ]; then
     writeEmailMsgToFile;
-    ssmtp -vvv email@domain < ${emailFile};
-    ssmtp -vvv email@domain < ${emailFile};
-    ssmtp -vvv email@domain < ${emailFile};
+
+    # Update the distro from file
+    source "${distroFile}";
+
+    # Send notification to each recipient in the distro
+    for recipient in ${distro}; do
+      ssmtp ${recipient}  < ${emailFile};
+      echo "  msg sent to ${recipient}";
+    done;
     #echo "hello world" | ssmtp -vvv email@domain
     sleep $((60 * 5)); # some extra sleep
   fi;
