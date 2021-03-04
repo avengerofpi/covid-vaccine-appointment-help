@@ -1,6 +1,7 @@
 #!/bin/bash
 
 outFile=output.html;
+emailFile=email-msg.txt;
 
 # Call Giant website link to check for open slots. Follow redirects (--location),
 # Silent output except for errors (-sS), and write to specified file (--output).
@@ -28,7 +29,6 @@ function printDate() {
 }
 
 # Write a email message to file, to be sent via `ssmpt`
-emailFile=email-msg.txt;
 function writeEmailMsgToFile() {
   cat > ${emailFile} << EOF
 Subject: Giant Vaccine Appointments Might Be Available
