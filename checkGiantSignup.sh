@@ -74,9 +74,8 @@ EOF
 }
 
 # Expected "no appointments available" response msg
-failureResponseMsg="There are currently no COVID-19 vaccine appointments available. Please check back later. We appreciate your patience as we open as many appointments as possible. Thank you.";
 function sendEmailOnNonFailure() {
-  if [ "${responseMsg}" != "${failureResponseMsg}" ]; then
+  if [ -n "${inLineResponseMsg}" ]; then
     writeEmailMsgToFile;
 
     # Update the distro from file
