@@ -14,7 +14,7 @@ function giantCovidCurl() {
 
 # Process output HTML (XHTML?) file to try to extract the relevant msg field(s).
 noAppointmentsAvailableXpath='/html/body/table/tbody/tr[2]/td/table/tbody/tr/td/div/div/h2/span/span/text()';
-inLineXpath='//*[@id="lbHeaderP"]/text()'
+inLineXpath='//*[@id="lbHeaderP"]/text()';
 waitTimeXpathA='//*[@id="MainPart_lbWhichIsInText"]/text()';
 waitTimeXpathB='//*[@id="MainPart_lbWhichIsIn"]/text()';
 downXpathA='/html/body/div/div[1]/h2/text()';
@@ -65,7 +65,7 @@ Subject: Giant Vaccine Appointments Might Be Available - "${waitTimeMsg}"
 There MIGHT be vaccine appointments available at Giant now.
 Check out link: ${url}
 
-Exerpt from from last call attempt:
+Exerpts from latest response:
   "${responseMsg}"
   "${inLineResponseMsg}"
   "${waitTimeMsg}"
@@ -105,7 +105,6 @@ function sendEmailOnNonFailure() {
 while true; do
   sleepTime=1; # default sleep time (minutes)
   printDate;
-  echo -n "  ";
   giantCovidCurl;
   giantCovidExtractMsg;
   sendEmailOnNonFailure;
