@@ -2,3 +2,5 @@
 *.swp
 /output.html
 email-msg.txt
+distro.config
+distro.debug.config
