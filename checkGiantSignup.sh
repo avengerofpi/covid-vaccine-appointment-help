@@ -88,18 +88,30 @@ function sendEmailOnNonFailure() {
       echo "  msg sent to ${recipient}";
     done;
     #echo "hello world" | ssmtp -vvv email@domain
-    sleep $((60 * 5)); # some extra sleep
+
+    # Adjust sleep time to be some default + estimated sleep time from the latest response
+    #   waitTimeMsgB (if not empty) is expected to be of the form 'n minutes' or 'less than a minute'
+    # Default/minimum sleep (after a valid response)
+    sleepTime=20;
+    # Try to parse and add estimated wait time
+    waitTime=${waitTimeMsgB};
+    waitTime=${waitTime/ minutes/};
+    if ! [[ ${waitTime} =~ '^[0-9]+$' ]] ; then
+      sleepTime=$(( sleepTime + waitTime ));
+    fi;
   fi;
 }
 
 # Main loop / program
 while true; do
+  sleepTime=1; # default sleep time (minutes)
   printDate;
   echo -n "  ";
   giantCovidCurl;
   giantCovidExtractMsg;
   sendEmailOnNonFailure;
+  echo "Sleeping for ${sleepTime} minutes...";
+  sleep "${sleepTime}m";
   echo;
-  sleep 60;
 done
 
