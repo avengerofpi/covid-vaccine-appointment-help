@@ -12,14 +12,33 @@ function giantCovidCurl() {
 }
 
 # Process output HTML (XHTML?) file to try to extract the relevant msg field(s).
-# Right now I only know what the (current) "no appointments available" msg looks like.
 noAppointmentsAvailableXpath='/html/body/table/tbody/tr[2]/td/table/tbody/tr/td/div/div/h2/span/span/text()';
 inLineXpath='//*[@id="lbHeaderP"]/text()'
+waitTimeXpathA='//*[@id="MainPart_lbWhichIsInText"]/text()';
+waitTimeXpathB='//*[@id="MainPart_lbWhichIsIn"]/text()';
+downXpathA='/html/body/div/div[1]/h2/text()';
+downXpathB='/html/body/div/div[1]/p/text()';
 function giantCovidExtractMsg() {
   responseMsg="`xmllint --html --xpath ${noAppointmentsAvailableXpath} ${outFile} 2> /dev/null`";
   inLineResponseMsg="`xmllint --html --xpath ${inLineXpath} ${outFile} 2> /dev/null`";
-  echo ${responseMsg};
-  echo ${inLineResponseMsg};
+  waitTimeMsgA="`xmllint --html --xpath ${waitTimeXpathA} ${outFile} 2> /dev/null`";
+  waitTimeMsgB="`xmllint --html --xpath ${waitTimeXpathB} ${outFile} 2> /dev/null`";
+  downMsgA="`xmllint --html --xpath ${downXpathA} ${outFile} 2> /dev/null`";
+  downMsgB="`xmllint --html --xpath ${downXpathB} ${outFile} 2> /dev/null`";
+
+  # Combine waitTime parts, and trim white space (make empty string if only whitespace)
+  waitTimeMsg="${waitTimeMsgA} ${waitTimeMsgB}";
+  waitTimeMsg=$(echo "${waitTimeMsg}" | sed -e 's@\(^\s*\|\s*$\)@@g');
+
+  # Combine down parts, and trim white space (make empty string if only whitespace)
+  downMsg="${downMsgA} ${downMsgB}";
+  downMsg=$(echo "${downMsg}" | sed -e 's@\(^\s*\|\s*$\)@@g');
+
+  # Helpful logging
+  echo "'${responseMsg}'";
+  echo "'${inLineResponseMsg}'";
+  echo "'${waitTimeMsg}'";
+  echo "'${downMsg}'";
 }
 
 # Print date, with color!
@@ -32,7 +51,7 @@ function printDate() {
 # Write a email message to file, to be sent via `ssmpt`
 function writeEmailMsgToFile() {
   cat > ${emailFile} << EOF
-Subject: Giant Vaccine Appointments Might Be Available
+Subject: Giant Vaccine Appointments Might Be Available - "${waitTimeMsg}"
 
 There MIGHT be vaccine appointments available at Giant now.
 Check out link: ${url}
@@ -40,6 +59,8 @@ Check out link: ${url}
 Exerpt from from last call attempt:
   "${responseMsg}"
   "${inLineResponseMsg}"
+  "${waitTimeMsg}"
+  "${downMsg}"
 EOF
 }
 
