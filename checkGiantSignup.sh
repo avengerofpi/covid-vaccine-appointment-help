@@ -95,7 +95,7 @@ function sendEmailOnNonFailure() {
     # Try to parse and add estimated wait time
     waitTime=${waitTimeMsgB};
     waitTime=${waitTime/ minutes/};
-    if ! [[ ${waitTime} =~ '^[0-9]+$' ]] ; then
+    if [[ ${waitTime} =~ '^[0-9]+$' ]] ; then
       sleepTime=$(( sleepTime + waitTime ));
     fi;
   fi;
