@@ -65,6 +65,30 @@ Subject: Giant Vaccine Appointments Might Be Available - "${waitTimeMsg}"
 There MIGHT be vaccine appointments available at Giant now.
 Check out link: ${url}
 
+Some Zip Codes that might be worth searching (per research in early Feb (2021...)):
+  20603 Waldorf
+  20607 Accokeek
+  20619 California
+  20715 Bowie
+  20747 District Heights
+  20754 Dunkirk
+  20774 Largo
+  20782 Hyattsville
+  20814 Bethesda
+  20866 Burtonsville
+  20878 Gaithersburg
+  20906 Silver Spring
+  21014 Belair
+  21043 Ellicott City
+  21061 Glen Burnie
+  21075 Elkridge
+  21093 Lutherville
+  21157 Westminister
+  21222 Dundalk
+  21229 Baltimore
+  21401 Annapolis
+  21701 Frederick
+
 Exerpts from latest response:
   "${responseMsg}"
   "${inLineResponseMsg}"
