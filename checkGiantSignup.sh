@@ -68,24 +68,28 @@ Check out link: ${url}
 In case you are not yet familiar with the Giant Foods scheduling interface, the
 following advise is from my experience (updated early March):
 
-If you are lucky enough to make it to the enter Zip Codes page, you will need
+If you are lucky enough to make it to the Enter Zip Codes page, you will need
 to try out zip codes and hope you enter one with a Giant Foods with available
-appointments nearby enough. Last I checked, it search is a 10 mile radius, so
-you will want to focus on Zip Codes that actually have Giant Foods stores that
-are offering vaccine appointments. Based on research from early Feb, the list
-below is what I work from.
+appointments nearby. Last I checked, it searches in a 10 mile radius, so you
+will want to focus on Zip Codes that actually have Giant Foods stores that are
+offering vaccine appointments. Based on research from early Feb, the list below
+is what I work from.
 
 After a certain number of zip codes are tried, you are kicked out of the
-system. In my experience that cap is 10.  The easiest way to get back in I have
-found is using private / in-cognito windows.
+system. In my experience that cap is 10. The easiest way I have found to get
+back in is starting fresh each time from a private/in-cognito browser session.
 
-You will also need to sign in before you can schedule an actual appointment. If
+You will also need to login before you can schedule an actual appointment. If
 you don't and if you are lucky enough to get to the "Click a Date > Click a
-Time" calendar interface, it will give you some silly error message, redirect
-you to a login page, and then return you to the Enter Zip Codes page.  You may
-be able to defeat this frustration by logging in first. Last I checked, when
-you are on the Enter Zip Codes page, there is a Login button at the bottom of
-the screen; you may need to scroll down to see it.
+Time" calendar interface and the Time you click is still available by the time
+you click it (there is a LOT of competition out there racing you), it will give
+you some silly error message, redirect you to a login page, and then return you
+to the Enter Zip Codes page after you have logged in. You will need to re-enter
+the Zip Code (hopefully you remember the one that just worked for you...), and
+hope that an appointment day/time that works for you is still available. 
+  You may be able to defeat this frustration by logging in first. Last I
+  checked, when you are on the Enter Zip Codes page, there is a Login button at
+  the bottom of the screen; you may need to scroll down to see it. Good luck.
 
 Zip Codes that might be worth searching (per research in early Feb (2021...)):
   20603 Waldorf
