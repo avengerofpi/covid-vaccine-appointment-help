@@ -65,7 +65,29 @@ Subject: Giant Vaccine Appointments Might Be Available - "${waitTimeMsg}"
 There MIGHT be vaccine appointments available at Giant now.
 Check out link: ${url}
 
-Some Zip Codes that might be worth searching (per research in early Feb (2021...)):
+In case you are not yet familiar with the Giant Foods scheduling interface, the
+following advise is from my experience (updated early March):
+
+If you are lucky enough to make it to the enter Zip Codes page, you will need
+to try out zip codes and hope you enter one with a Giant Foods with available
+appointments nearby enough. Last I checked, it search is a 10 mile radius, so
+you will want to focus on Zip Codes that actually have Giant Foods stores that
+are offering vaccine appointments. Based on research from early Feb, the list
+below is what I work from.
+
+After a certain number of zip codes are tried, you are kicked out of the
+system. In my experience that cap is 10.  The easiest way to get back in I have
+found is using private / in-cognito windows.
+
+You will also need to sign in before you can schedule an actual appointment. If
+you don't and if you are lucky enough to get to the "Click a Date > Click a
+Time" calendar interface, it will give you some silly error message, redirect
+you to a login page, and then return you to the Enter Zip Codes page.  You may
+be able to defeat this frustration by logging in first. Last I checked, when
+you are on the Enter Zip Codes page, there is a Login button at the bottom of
+the screen; you may need to scroll down to see it.
+
+Zip Codes that might be worth searching (per research in early Feb (2021...)):
   20603 Waldorf
   20607 Accokeek
   20619 California
